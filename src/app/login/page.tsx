@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Phone, ArrowRight, Shield, ChevronLeft, RefreshCw } from "lucide-react";
+import { Phone, ArrowRight, ShieldCheck, ChevronLeft, RefreshCw, Lock } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 
 type Step = "mobile" | "otp";
@@ -57,7 +57,6 @@ export default function LoginPage() {
 
   const handleOtpChange = (index: number, value: string) => {
     if (value.length > 1) {
-      // Handle paste
       const digits = value.replace(/\D/g, "").slice(0, 6).split("");
       const newOtp = [...otp];
       digits.forEach((d, i) => {
@@ -87,7 +86,6 @@ export default function LoginPage() {
       setOtpError("Enter the 6-digit OTP");
       return;
     }
-    // For demo: any 6-digit OTP works
     setOtpError("");
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1200));
@@ -108,30 +106,31 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <div className="gradient-purple px-5 pt-12 pb-10 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+      <div className="gradient-hero px-5 pt-10 pb-12 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/3" />
+        <div className="absolute top-16 right-10 w-16 h-16 bg-white/5 rounded-full" />
 
         {step === "otp" && (
           <button
             onClick={() => { setStep("mobile"); setOtp(["", "", "", "", "", ""]); }}
-            className="mb-4 flex items-center gap-1 text-purple-200 hover:text-white"
+            className="mb-4 flex items-center gap-1 text-blue-200 hover:text-white transition-colors"
           >
-            <ChevronLeft size={18} />
-            <span className="text-sm">Back</span>
+            <ChevronLeft size={20} />
+            <span className="text-sm font-medium">Back</span>
           </button>
         )}
 
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center">
-            <span className="text-xl font-black text-purple-700">KB</span>
+          <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
+            <span className="text-xl font-black text-white">KB</span>
           </div>
           <span className="text-white text-xl font-bold">KreditBee</span>
         </div>
-        <h2 className="text-white text-2xl font-bold mt-4">
+        <h2 className="text-white text-2xl font-semibold mt-5">
           {step === "mobile" ? "Welcome Back!" : "Verify OTP"}
         </h2>
-        <p className="text-purple-200 text-sm mt-1">
+        <p className="text-blue-200 text-sm mt-1.5">
           {step === "mobile"
             ? "Enter your mobile number to continue"
             : `OTP sent to +91 ${mobile}`}
@@ -139,19 +138,19 @@ export default function LoginPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 bg-white rounded-t-3xl -mt-4 px-5 pt-8 pb-6 fade-in">
+      <div className="flex-1 bg-white rounded-t-[24px] -mt-4 px-5 pt-8 pb-6 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
         {step === "mobile" ? (
           <div className="space-y-6">
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-2 block">
+              <label className="text-sm font-semibold text-slate-700 mb-2.5 block">
                 Mobile Number
               </label>
-              <div className="flex items-center gap-3 border-2 border-purple-100 rounded-2xl px-4 py-3.5 focus-within:border-purple-500 focus-within:shadow-lg focus-within:shadow-purple-100 transition-all">
-                <div className="flex items-center gap-2 border-r border-gray-200 pr-3">
+              <div className="flex items-center gap-3 border-2 border-slate-200 rounded-2xl px-4 py-4 focus-within:border-blue-400 focus-within:shadow-sm focus-within:shadow-blue-100/50 transition-all bg-white">
+                <div className="flex items-center gap-2 border-r border-slate-200 pr-3">
                   <span className="text-lg">🇮🇳</span>
-                  <span className="text-gray-600 font-medium text-sm">+91</span>
+                  <span className="text-slate-600 font-medium text-sm">+91</span>
                 </div>
-                <Phone size={18} className="text-purple-400" />
+                <Phone size={18} className="text-slate-400" />
                 <input
                   type="tel"
                   maxLength={10}
@@ -162,12 +161,12 @@ export default function LoginPage() {
                   }}
                   onKeyDown={(e) => e.key === "Enter" && handleMobileSubmit()}
                   placeholder="Enter 10-digit number"
-                  className="flex-1 bg-transparent text-gray-900 text-base font-medium placeholder:text-gray-300 outline-none"
+                  className="flex-1 bg-transparent text-slate-900 text-base font-medium placeholder:text-slate-300 outline-none"
                 />
               </div>
               {mobileError && (
-                <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
-                  <span>⚠</span> {mobileError}
+                <p className="text-red-500 text-xs mt-2 flex items-center gap-1.5">
+                  <span className="text-xs">⚠</span> {mobileError}
                 </p>
               )}
             </div>
@@ -175,10 +174,10 @@ export default function LoginPage() {
             <button
               onClick={handleMobileSubmit}
               disabled={loading || mobile.length !== 10}
-              className="w-full gradient-purple text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 disabled:opacity-60 active:scale-95 shadow-lg shadow-purple-200"
+              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? (
-                <span className="flex gap-1">
+                <span className="flex gap-1.5">
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
@@ -191,24 +190,26 @@ export default function LoginPage() {
             </button>
 
             {/* Security note */}
-            <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-2xl px-4 py-3">
-              <Shield size={16} className="text-green-600 shrink-0" />
-              <p className="text-green-700 text-xs">
-                Your data is 100% secure. We use 256-bit SSL encryption.
+            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-2xl px-4 py-3.5">
+              <div className="bg-emerald-100 p-2 rounded-xl">
+                <ShieldCheck size={18} className="text-emerald-600" />
+              </div>
+              <p className="text-emerald-700 text-xs leading-relaxed">
+                Your data is 100% secure. We use 256-bit SSL encryption to protect your information.
               </p>
             </div>
 
-            <p className="text-center text-xs text-gray-500 leading-relaxed">
+            <p className="text-center text-xs text-slate-500 leading-relaxed">
               By continuing, you agree to our{" "}
-              <Link href="/terms" className="text-purple-600 font-medium">Terms of Service</Link>{" "}
+              <Link href="/terms" className="text-blue-600 font-semibold">Terms of Service</Link>{" "}
               &{" "}
-              <Link href="/privacy" className="text-purple-600 font-medium">Privacy Policy</Link>
+              <Link href="/privacy" className="text-blue-600 font-semibold">Privacy Policy</Link>
             </p>
           </div>
         ) : (
           <div className="space-y-6">
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-4 block">
+              <label className="text-sm font-semibold text-slate-700 mb-4 block">
                 Enter 6-digit OTP
               </label>
               <div className="flex gap-2 justify-between">
@@ -226,22 +227,22 @@ export default function LoginPage() {
                 ))}
               </div>
               {otpError && (
-                <p className="text-red-500 text-xs mt-2 flex items-center gap-1">
-                  <span>⚠</span> {otpError}
+                <p className="text-red-500 text-xs mt-3 flex items-center gap-1.5">
+                  <span className="text-xs">⚠</span> {otpError}
                 </p>
               )}
             </div>
 
             {/* Resend */}
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-500">
+              <span className="text-slate-500">
                 {canResend ? "Didn't receive OTP?" : `Resend in ${timer}s`}
               </span>
               <button
                 onClick={handleResend}
                 disabled={!canResend}
-                className={`flex items-center gap-1 font-semibold ${
-                  canResend ? "text-purple-600" : "text-gray-300"
+                className={`flex items-center gap-1.5 font-semibold transition-colors ${
+                  canResend ? "text-blue-600 hover:text-blue-700" : "text-slate-300 cursor-not-allowed"
                 }`}
               >
                 <RefreshCw size={14} />
@@ -252,10 +253,10 @@ export default function LoginPage() {
             <button
               onClick={handleOtpVerify}
               disabled={loading || otp.join("").length !== 6}
-              className="w-full gradient-purple text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 disabled:opacity-60 active:scale-95 shadow-lg shadow-purple-200"
+              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? (
-                <span className="flex gap-1">
+                <span className="flex gap-1.5">
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
                   <span className="w-2 h-2 bg-white rounded-full loading-dot" />
@@ -267,22 +268,23 @@ export default function LoginPage() {
               )}
             </button>
 
-            <p className="text-center text-xs text-gray-400">
-              Demo: Enter any 6-digit OTP to proceed
-            </p>
+            <div className="flex items-center justify-center gap-2 text-slate-400">
+              <Lock size={14} />
+              <p className="text-xs">Demo: Enter any 6-digit OTP to proceed</p>
+            </div>
           </div>
         )}
 
         {/* Features */}
         <div className="mt-8 grid grid-cols-3 gap-3">
           {[
-            { icon: "⚡", label: "Instant\nApproval" },
-            { icon: "💰", label: "Up to ₹4\nLakh" },
-            { icon: "📱", label: "100%\nDigital" },
-          ].map(({ icon, label }) => (
-            <div key={label} className="text-center bg-purple-50 rounded-2xl p-3">
-              <div className="text-2xl mb-1">{icon}</div>
-              <p className="text-xs text-purple-700 font-medium whitespace-pre-line">{label}</p>
+            { icon: "⚡", label: "Instant\nApproval", bg: "bg-blue-50" },
+            { icon: "💰", label: "Up to ₹4\nLakh", bg: "bg-emerald-50" },
+            { icon: "📱", label: "100%\nDigital", bg: "bg-violet-50" },
+          ].map(({ icon, label, bg }) => (
+            <div key={label} className={`text-center ${bg} rounded-2xl p-4`}>
+              <div className="text-2xl mb-1.5">{icon}</div>
+              <p className="text-xs text-slate-600 font-medium whitespace-pre-line">{label}</p>
             </div>
           ))}
         </div>
