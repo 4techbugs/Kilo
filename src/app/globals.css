@@ -10,7 +10,7 @@
   --accent-light: #10B981;
   --accent-dark: #047857;
   --accent-50: #ECFDF5;
-  --bg: #F8FAFC;
+  --bg: #F1F5F9;
   --surface: #FFFFFF;
   --surface-elevated: #FFFFFF;
   --text-primary: #0F172A;
@@ -26,10 +26,14 @@
   --info-light: #E0F2FE;
   --success: #059669;
   --success-light: #D1FAE5;
-  --shadows: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadows: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadows-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadows-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadows-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 * {
@@ -48,7 +52,7 @@ html, body {
 }
 
 .app-container {
-  max-width: 430px;
+  max-width: 480px;
   margin: 0 auto;
   min-height: 100vh;
   background: var(--surface);

@@ -8,14 +8,11 @@ A complete mobile-first finance/lending application styled after KreditBee, buil
 
 ## Recently Completed
 
-- [x] Professional redesign with blue/slate color palette (#1E3A8A primary)
-- [x] Redesigned globals.css with refined design tokens and new color system
-- [x] Dashboard with premium credit card design, better spacing, refined shadows
-- [x] Login page with modern glassmorphism, better typography, improved UX
-- [x] Apply Loan page with clean card design, better form styling
-- [x] BottomNav with hover states and refined active indicators
-- [x] PageHeader with subtle styling matching new theme
-- [x] Splash page with updated gradient hero design
+- [x] Refined design with cleaner layouts and better spacing
+- [x] Improved globals.css with refined design tokens and border-radius variables
+- [x] Redesigned Splash page with centered, minimalist composition
+- [x] Redesigned Login page with cleaner form and better centering
+- [x] Redesigned Dashboard with improved card layouts and spacing
 - [x] All lint and typecheck passing
 
 ## App Structure
@@ -63,3 +60,4 @@ A complete mobile-first finance/lending application styled after KreditBee, buil
 | Initial | Template created with base setup |
 | April 2026 | Full KreditBee-like finance app built |
 | April 16, 2026 | Professional redesign with blue/slate palette |
+| April 16, 2026 | Refined design - cleaner layouts and spacing |

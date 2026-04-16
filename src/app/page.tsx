@@ -20,37 +20,30 @@ export default function SplashPage() {
   }, [isAuthenticated, router]);
 
   return (
-    <div className="min-h-screen gradient-hero flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-      <div className="absolute top-1/3 left-10 w-20 h-20 bg-white/5 rounded-full" />
-      <div className="absolute bottom-1/3 right-10 w-16 h-16 bg-white/5 rounded-full" />
-
-      {/* Logo */}
-      <div className="flex flex-col items-center gap-5 fade-in">
-        <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center shadow-2xl shadow-blue-900/20">
-          <span className="text-4xl font-black text-blue-700">KB</span>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex flex-col items-center justify-center px-6">
+      <div className="w-full max-w-[280px] text-center">
+        <div className="flex flex-col items-center gap-6 fade-in">
+          <div className="w-20 h-20 bg-white rounded-[22px] flex items-center justify-center shadow-2xl">
+            <span className="text-3xl font-black text-blue-700">KB</span>
+          </div>
+          <div className="space-y-1">
+            <h1 className="text-3xl font-bold text-white tracking-tight">KreditBee</h1>
+            <p className="text-blue-200 text-sm font-medium">Smart Loans. Simple Life.</p>
+          </div>
         </div>
-        <div className="text-center">
-          <h1 className="text-4xl font-black text-white tracking-tight">KreditBee</h1>
-          <p className="text-blue-200 text-base mt-1 font-medium">Smart Loans. Simple Life.</p>
+
+        <div className="mt-10 text-center">
+          <p className="text-blue-300/70 text-xs leading-relaxed">
+            Instant personal loans up to ₹4 Lakh<br />
+            Approved in minutes. Disbursed in hours.
+          </p>
         </div>
-      </div>
 
-      {/* Tagline */}
-      <div className="mt-14 text-center px-8 fade-in">
-        <p className="text-white/80 text-sm leading-relaxed">
-          Instant personal loans up to ₹4 Lakh<br />
-          Approved in minutes. Disbursed in hours.
-        </p>
-      </div>
-
-      {/* Loading dots */}
-      <div className="absolute bottom-16 flex gap-2">
-        <div className="w-2 h-2 bg-white/60 rounded-full loading-dot" />
-        <div className="w-2 h-2 bg-white/60 rounded-full loading-dot" />
-        <div className="w-2 h-2 bg-white/60 rounded-full loading-dot" />
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <div className="w-1.5 h-1.5 bg-white/50 rounded-full loading-dot" />
+          <div className="w-1.5 h-1.5 bg-white/50 rounded-full loading-dot" />
+          <div className="w-1.5 h-1.5 bg-white/50 rounded-full loading-dot" />
+        </div>
       </div>
     </div>
   );

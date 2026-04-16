@@ -105,29 +105,24 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <div className="gradient-hero px-5 pt-10 pb-12 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/3" />
-        <div className="absolute top-16 right-10 w-16 h-16 bg-white/5 rounded-full" />
-
+      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 px-5 pt-8 pb-10">
         {step === "otp" && (
           <button
             onClick={() => { setStep("mobile"); setOtp(["", "", "", "", "", ""]); }}
-            className="mb-4 flex items-center gap-1 text-blue-200 hover:text-white transition-colors"
+            className="mb-3 flex items-center gap-1 text-blue-200 hover:text-white transition-colors"
           >
             <ChevronLeft size={20} />
             <span className="text-sm font-medium">Back</span>
           </button>
         )}
 
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
-            <span className="text-xl font-black text-white">KB</span>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
+            <span className="text-lg font-black text-white">KB</span>
           </div>
-          <span className="text-white text-xl font-bold">KreditBee</span>
+          <span className="text-white text-lg font-semibold">KreditBee</span>
         </div>
-        <h2 className="text-white text-2xl font-semibold mt-5">
+        <h2 className="text-white text-xl font-semibold mt-6">
           {step === "mobile" ? "Welcome Back!" : "Verify OTP"}
         </h2>
         <p className="text-blue-200 text-sm mt-1.5">
@@ -137,17 +132,16 @@ export default function LoginPage() {
         </p>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 bg-white rounded-t-[24px] -mt-4 px-5 pt-8 pb-6 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+      <div className="flex-1 bg-white rounded-t-3xl -mt-6 px-5 pt-8 pb-6 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         {step === "mobile" ? (
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-2.5 block">
+              <label className="text-sm font-medium text-slate-700 mb-2.5 block">
                 Mobile Number
               </label>
-              <div className="flex items-center gap-3 border-2 border-slate-200 rounded-2xl px-4 py-4 focus-within:border-blue-400 focus-within:shadow-sm focus-within:shadow-blue-100/50 transition-all bg-white">
+              <div className="flex items-center gap-3 border-2 border-slate-200 rounded-xl px-4 py-3.5 focus-within:border-blue-400 focus-within:shadow-sm focus-within:shadow-blue-100/50 transition-all bg-white">
                 <div className="flex items-center gap-2 border-r border-slate-200 pr-3">
-                  <span className="text-lg">🇮🇳</span>
+                  <span className="text-base">🇮🇳</span>
                   <span className="text-slate-600 font-medium text-sm">+91</span>
                 </div>
                 <Phone size={18} className="text-slate-400" />
@@ -174,7 +168,7 @@ export default function LoginPage() {
             <button
               onClick={handleMobileSubmit}
               disabled={loading || mobile.length !== 10}
-              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25"
             >
               {loading ? (
                 <span className="flex gap-1.5">
@@ -189,27 +183,26 @@ export default function LoginPage() {
               )}
             </button>
 
-            {/* Security note */}
-            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-2xl px-4 py-3.5">
-              <div className="bg-emerald-100 p-2 rounded-xl">
-                <ShieldCheck size={18} className="text-emerald-600" />
+            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3">
+              <div className="bg-emerald-100 p-1.5 rounded-lg">
+                <ShieldCheck size={16} className="text-emerald-600" />
               </div>
-              <p className="text-emerald-700 text-xs leading-relaxed">
-                Your data is 100% secure. We use 256-bit SSL encryption to protect your information.
+              <p className="text-emerald-700 text-xs">
+                Your data is 100% secure with SSL encryption
               </p>
             </div>
 
-            <p className="text-center text-xs text-slate-500 leading-relaxed">
+            <p className="text-center text-xs text-slate-400 leading-relaxed">
               By continuing, you agree to our{" "}
-              <Link href="/terms" className="text-blue-600 font-semibold">Terms of Service</Link>{" "}
+              <Link href="/terms" className="text-blue-600 font-medium hover:underline">Terms</Link>{" "}
               &{" "}
-              <Link href="/privacy" className="text-blue-600 font-semibold">Privacy Policy</Link>
+              <Link href="/privacy" className="text-blue-600 font-medium hover:underline">Privacy</Link>
             </p>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div>
-              <label className="text-sm font-semibold text-slate-700 mb-4 block">
+              <label className="text-sm font-medium text-slate-700 mb-4 block">
                 Enter 6-digit OTP
               </label>
               <div className="flex gap-2 justify-between">
@@ -233,7 +226,6 @@ export default function LoginPage() {
               )}
             </div>
 
-            {/* Resend */}
             <div className="flex items-center justify-between text-sm">
               <span className="text-slate-500">
                 {canResend ? "Didn't receive OTP?" : `Resend in ${timer}s`}
@@ -241,7 +233,7 @@ export default function LoginPage() {
               <button
                 onClick={handleResend}
                 disabled={!canResend}
-                className={`flex items-center gap-1.5 font-semibold transition-colors ${
+                className={`flex items-center gap-1.5 font-medium transition-colors ${
                   canResend ? "text-blue-600 hover:text-blue-700" : "text-slate-300 cursor-not-allowed"
                 }`}
               >
@@ -253,7 +245,7 @@ export default function LoginPage() {
             <button
               onClick={handleOtpVerify}
               disabled={loading || otp.join("").length !== 6}
-              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25"
             >
               {loading ? (
                 <span className="flex gap-1.5">
@@ -270,21 +262,20 @@ export default function LoginPage() {
 
             <div className="flex items-center justify-center gap-2 text-slate-400">
               <Lock size={14} />
-              <p className="text-xs">Demo: Enter any 6-digit OTP to proceed</p>
+              <p className="text-xs">Demo: Enter any 6-digit OTP</p>
             </div>
           </div>
         )}
 
-        {/* Features */}
-        <div className="mt-8 grid grid-cols-3 gap-3">
+        <div className="mt-8 grid grid-cols-3 gap-2.5">
           {[
-            { icon: "⚡", label: "Instant\nApproval", bg: "bg-blue-50" },
-            { icon: "💰", label: "Up to ₹4\nLakh", bg: "bg-emerald-50" },
-            { icon: "📱", label: "100%\nDigital", bg: "bg-violet-50" },
+            { icon: "⚡", label: "Instant", bg: "bg-blue-50" },
+            { icon: "💰", label: "Up to ₹4L", bg: "bg-emerald-50" },
+            { icon: "📱", label: "Digital", bg: "bg-violet-50" },
           ].map(({ icon, label, bg }) => (
-            <div key={label} className={`text-center ${bg} rounded-2xl p-4`}>
-              <div className="text-2xl mb-1.5">{icon}</div>
-              <p className="text-xs text-slate-600 font-medium whitespace-pre-line">{label}</p>
+            <div key={label} className={`text-center ${bg} rounded-xl py-3`}>
+              <div className="text-xl mb-1">{icon}</div>
+              <p className="text-xs text-slate-600 font-medium">{label}</p>
             </div>
           ))}
         </div>
