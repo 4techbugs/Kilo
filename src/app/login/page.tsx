@@ -105,11 +105,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 px-5 pt-8 pb-10">
+      <div className="bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 px-5 pt-8 pb-10">
         {step === "otp" && (
           <button
             onClick={() => { setStep("mobile"); setOtp(["", "", "", "", "", ""]); }}
-            className="mb-3 flex items-center gap-1 text-blue-200 hover:text-white transition-colors"
+            className="mb-3 flex items-center gap-1 text-indigo-200 hover:text-white transition-colors"
           >
             <ChevronLeft size={20} />
             <span className="text-sm font-medium">Back</span>
@@ -125,7 +125,7 @@ export default function LoginPage() {
         <h2 className="text-white text-xl font-semibold mt-6">
           {step === "mobile" ? "Welcome Back!" : "Verify OTP"}
         </h2>
-        <p className="text-blue-200 text-sm mt-1.5">
+        <p className="text-indigo-200 text-sm mt-1.5">
           {step === "mobile"
             ? "Enter your mobile number to continue"
             : `OTP sent to +91 ${mobile}`}
@@ -139,7 +139,7 @@ export default function LoginPage() {
               <label className="text-sm font-medium text-slate-700 mb-2.5 block">
                 Mobile Number
               </label>
-              <div className="flex items-center gap-3 border-2 border-slate-200 rounded-xl px-4 py-3.5 focus-within:border-blue-400 focus-within:shadow-sm focus-within:shadow-blue-100/50 transition-all bg-white">
+              <div className="flex items-center gap-3 border-2 border-slate-200 rounded-xl px-4 py-3.5 focus-within:border-indigo-400 focus-within:shadow-sm focus-within:shadow-indigo-100/50 transition-all bg-white">
                 <div className="flex items-center gap-2 border-r border-slate-200 pr-3">
                   <span className="text-base">🇮🇳</span>
                   <span className="text-slate-600 font-medium text-sm">+91</span>
@@ -168,7 +168,7 @@ export default function LoginPage() {
             <button
               onClick={handleMobileSubmit}
               disabled={loading || mobile.length !== 10}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25"
+              className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/25"
             >
               {loading ? (
                 <span className="flex gap-1.5">
@@ -194,9 +194,9 @@ export default function LoginPage() {
 
             <p className="text-center text-xs text-slate-400 leading-relaxed">
               By continuing, you agree to our{" "}
-              <Link href="/terms" className="text-blue-600 font-medium hover:underline">Terms</Link>{" "}
+              <Link href="/terms" className="text-indigo-600 font-medium hover:underline">Terms</Link>{" "}
               &{" "}
-              <Link href="/privacy" className="text-blue-600 font-medium hover:underline">Privacy</Link>
+              <Link href="/privacy" className="text-indigo-600 font-medium hover:underline">Privacy</Link>
             </p>
           </div>
         ) : (
@@ -234,7 +234,7 @@ export default function LoginPage() {
                 onClick={handleResend}
                 disabled={!canResend}
                 className={`flex items-center gap-1.5 font-medium transition-colors ${
-                  canResend ? "text-blue-600 hover:text-blue-700" : "text-slate-300 cursor-not-allowed"
+                  canResend ? "text-indigo-600 hover:text-indigo-700" : "text-slate-300 cursor-not-allowed"
                 }`}
               >
                 <RefreshCw size={14} />
@@ -245,7 +245,7 @@ export default function LoginPage() {
             <button
               onClick={handleOtpVerify}
               disabled={loading || otp.join("").length !== 6}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25"
+              className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/25"
             >
               {loading ? (
                 <span className="flex gap-1.5">
@@ -269,8 +269,8 @@ export default function LoginPage() {
 
         <div className="mt-8 grid grid-cols-3 gap-2.5">
           {[
-            { icon: "⚡", label: "Instant", bg: "bg-blue-50" },
-            { icon: "💰", label: "Up to ₹4L", bg: "bg-emerald-50" },
+            { icon: "⚡", label: "Instant", bg: "bg-indigo-50" },
+            { icon: "💰", label: "Up to ��4L", bg: "bg-emerald-50" },
             { icon: "📱", label: "Digital", bg: "bg-violet-50" },
           ].map(({ icon, label, bg }) => (
             <div key={label} className={`text-center ${bg} rounded-xl py-3`}>

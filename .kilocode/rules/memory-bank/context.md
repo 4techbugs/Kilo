@@ -2,17 +2,17 @@
 
 ## Current State
 
-**App Status**: ✅ Fully built — KreditBee-like finance app with professional design
+**App Status**: ✅ Fully built — KreditBee-like finance app with modern indigo/violet design
 
-A complete mobile-first finance/lending application styled after KreditBee, built with Next.js 16, TypeScript, Tailwind CSS 4, and lucide-react. Recently redesigned with professional blue/slate color palette.
+A complete mobile-first finance/lending application styled after KreditBee, built with Next.js 16, TypeScript, Tailwind CSS 4, and lucide-react. Redesigned with modern indigo/violet color palette for a fresh, contemporary look.
 
 ## Recently Completed
 
-- [x] Refined design with cleaner layouts and better spacing
-- [x] Improved globals.css with refined design tokens and border-radius variables
-- [x] Redesigned Splash page with centered, minimalist composition
-- [x] Redesigned Login page with cleaner form and better centering
-- [x] Redesigned Dashboard with improved card layouts and spacing
+- [x] Modern redesign with indigo/violet gradient theme (#4F46E5)
+- [x] Updated globals.css with modern design tokens and smooth animations
+- [x] Redesigned Splash, Login, Dashboard with indigo gradient
+- [x] Redesigned Apply Loan with cleaner card layouts
+- [x] Redesigned Calculator with modern gradient cards
 - [x] All lint and typecheck passing
 
 ## App Structure
@@ -42,15 +42,15 @@ A complete mobile-first finance/lending application styled after KreditBee, buil
 - **Auth**: OTP-based (demo: any 6-digit code)
 - **Package Manager**: Bun
 
-## Color Palette (Professional Blue)
+## Color Palette (Modern Indigo)
 
-- Primary: `#1E3A8A` (blue-900)
-- Primary light: `#3B82F6` (blue-500)
-- Primary dark: `#1E40AF` (blue-800)
-- Accent: `#059669` (emerald-600)
+- Primary: `#4F46E5` (indigo-600)
+- Primary light: `#818CF8` (indigo-400)
+- Primary dark: `#4338CA` (indigo-700)
+- Accent: `#10B981` (emerald-500)
 - Background: `#F8FAFC` (slate-50)
 - Surface: `#FFFFFF`
-- Text primary: `#0F172A` (slate-900)
+- Text primary: `#1E293B` (slate-800)
 - Text secondary: `#475569` (slate-600)
 
 ## Session History
@@ -61,3 +61,4 @@ A complete mobile-first finance/lending application styled after KreditBee, buil
 | April 2026 | Full KreditBee-like finance app built |
 | April 16, 2026 | Professional redesign with blue/slate palette |
 | April 16, 2026 | Refined design - cleaner layouts and spacing |
+| April 19, 2026 | Modern redesign with indigo/violet theme |

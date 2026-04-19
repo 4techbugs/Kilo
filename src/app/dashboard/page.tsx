@@ -7,25 +7,25 @@ import { useAuth } from "@/context/AuthContext";
 import BottomNav from "@/components/BottomNav";
 import {
   Bell, ChevronRight, Zap, TrendingUp, CreditCard,
-  Calculator, FileText, Headphones, Gift, Star, Wallet, ArrowUpRight
+  Calculator, FileText, Headphones, Gift, Star, ArrowUpRight
 } from "lucide-react";
 
 const QUICK_ACTIONS = [
-  { icon: Zap, label: "Apply Loan", href: "/apply-loan", color: "bg-blue-50 text-blue-600", iconBg: "bg-blue-100" },
-  { icon: CreditCard, label: "My Loans", href: "/my-loans", color: "bg-slate-50 text-slate-600", iconBg: "bg-slate-100" },
-  { icon: Calculator, label: "EMI Calc", href: "/calculator", color: "bg-emerald-50 text-emerald-600", iconBg: "bg-emerald-100" },
-  { icon: TrendingUp, label: "Credit Score", href: "/profile", color: "bg-orange-50 text-orange-600", iconBg: "bg-orange-100" },
-  { icon: FileText, label: "Documents", href: "/kyc", color: "bg-rose-50 text-rose-600", iconBg: "bg-rose-100" },
-  { icon: Headphones, label: "Support", href: "/faq", color: "bg-cyan-50 text-cyan-600", iconBg: "bg-cyan-100" },
-  { icon: Gift, label: "Offers", href: "/apply-loan", color: "bg-violet-50 text-violet-600", iconBg: "bg-violet-100" },
-  { icon: Star, label: "Refer & Earn", href: "#", color: "bg-amber-50 text-amber-600", iconBg: "bg-amber-100" },
+  { icon: Zap, label: "Apply Loan", href: "/apply-loan", iconBg: "bg-indigo-100 text-indigo-600" },
+  { icon: CreditCard, label: "My Loans", href: "/my-loans", iconBg: "bg-slate-100 text-slate-600" },
+  { icon: Calculator, label: "EMI Calc", href: "/calculator", iconBg: "bg-emerald-100 text-emerald-600" },
+  { icon: TrendingUp, label: "Credit Score", href: "/profile", iconBg: "bg-orange-100 text-orange-600" },
+  { icon: FileText, label: "Documents", href: "/kyc", iconBg: "bg-rose-100 text-rose-600" },
+  { icon: Headphones, label: "Support", href: "/faq", iconBg: "bg-cyan-100 text-cyan-600" },
+  { icon: Gift, label: "Offers", href: "/apply-loan", iconBg: "bg-violet-100 text-violet-600" },
+  { icon: Star, label: "Refer & Earn", href: "#", iconBg: "bg-amber-100 text-amber-600" },
 ];
 
 const LOAN_TYPES = [
-  { label: "Personal Loan", desc: "Up to ₹4 Lakh", rate: "Starting 1.5%/mo", icon: "💼", gradient: "from-slate-600 to-slate-800" },
-  { label: "Salary Advance", desc: "Up to ₹25,000", rate: "0 interest", icon: "💰", gradient: "from-emerald-500 to-emerald-700" },
-  { label: "Education Loan", desc: "Up to ₹2 Lakh", rate: "Starting 1.2%/mo", icon: "🎓", gradient: "from-blue-500 to-blue-700" },
-  { label: "Medical Loan", desc: "Up to ₹1 Lakh", rate: "Emergency", icon: "🏥", gradient: "from-rose-500 to-rose-700" },
+  { label: "Personal Loan", desc: "Up to ₹4 Lakh", rate: "Starting 1.5%/mo", icon: "💼", gradient: "from-indigo-600 to-violet-700" },
+  { label: "Salary Advance", desc: "Up to ₹25,000", rate: "0 interest", icon: "💰", gradient: "from-emerald-500 to-emerald-600" },
+  { label: "Education Loan", desc: "Up to ₹2 Lakh", rate: "Starting 1.2%/mo", icon: "🎓", gradient: "from-blue-500 to-blue-600" },
+  { label: "Medical Loan", desc: "Up to ₹1 Lakh", rate: "Emergency", icon: "🏥", gradient: "from-rose-500 to-rose-600" },
 ];
 
 export default function DashboardPage() {
@@ -54,14 +54,14 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-slate-100 pb-24">
-      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 px-4 pt-8 pb-12">
+      <div className="bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 px-4 pt-8 pb-12">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10">
               <span className="text-base font-black text-white">KB</span>
             </div>
             <div>
-              <p className="text-blue-200 text-xs font-medium">{greeting()},</p>
+              <p className="text-indigo-200 text-xs font-medium">{greeting()},</p>
               <p className="text-white text-base font-semibold">
                 {user.name || `+91 ${user.mobile}`}
               </p>
@@ -80,11 +80,11 @@ export default function DashboardPage() {
         <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <p className="text-blue-200 text-xs font-medium">Available Credit</p>
+              <p className="text-indigo-200 text-xs font-medium">Available Credit</p>
               <p className="text-white text-2xl font-bold mt-1 tracking-tight">
                 ₹{fmt(user.creditLimit - totalOutstanding)}
               </p>
-              <p className="text-blue-200/70 text-xs mt-1">of ₹{fmt(user.creditLimit)}</p>
+              <p className="text-indigo-200/70 text-xs mt-1">of ₹{fmt(user.creditLimit)}</p>
             </div>
             <div className="bg-white/15 backdrop-blur-sm rounded-lg px-3 py-2">
               <p className="text-white/70 text-[10px] font-medium">CIBIL</p>
@@ -100,19 +100,19 @@ export default function DashboardPage() {
               />
             </div>
             <div className="flex justify-between mt-1.5">
-              <p className="text-blue-200/70 text-[10px]">{creditUsedPercent.toFixed(0)}% used</p>
-              <p className="text-blue-200/70 text-[10px]">{creditAvailablePercent.toFixed(0)}% free</p>
+              <p className="text-indigo-200/70 text-[10px]">{creditUsedPercent.toFixed(0)}% used</p>
+              <p className="text-indigo-200/70 text-[10px]">{creditAvailablePercent.toFixed(0)}% free</p>
             </div>
           </div>
 
           <div className="flex justify-between items-center">
             <div>
-              <p className="text-blue-200/70 text-xs">Outstanding</p>
+              <p className="text-indigo-200/70 text-xs">Outstanding</p>
               <p className="text-white text-sm font-semibold">₹{fmt(totalOutstanding)}</p>
             </div>
             <Link
               href="/apply-loan"
-              className="bg-white text-blue-700 font-semibold text-sm px-4 py-2.5 rounded-xl flex items-center gap-1.5 hover:bg-blue-50"
+              className="bg-white text-indigo-600 font-semibold text-sm px-4 py-2.5 rounded-xl flex items-center gap-1.5 hover:bg-indigo-50"
             >
               Apply Now <ArrowUpRight size={14} />
             </Link>
@@ -156,7 +156,7 @@ export default function DashboardPage() {
           <div className="mb-6">
             <div className="flex justify-between items-center mb-3">
               <h3 className="text-slate-800 font-bold text-base">Active Loans</h3>
-              <Link href="/my-loans" className="text-blue-600 text-xs font-semibold flex items-center gap-0.5">
+              <Link href="/my-loans" className="text-indigo-600 text-xs font-semibold flex items-center gap-0.5">
                 View All <ChevronRight size={14} />
               </Link>
             </div>
@@ -190,7 +190,7 @@ export default function DashboardPage() {
                   </div>
                   <div className="bg-slate-100 rounded-full h-1.5 overflow-hidden">
                     <div
-                      className="bg-blue-500 h-1.5 rounded-full"
+                      className="bg-indigo-500 h-1.5 rounded-full"
                       style={{ width: `${Math.max(2, (loan.totalPaid / loan.amount) * 100)}%` }}
                     />
                   </div>
@@ -231,8 +231,8 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-100 rounded-xl px-3 py-2.5 mb-4">
-          <p className="text-blue-700 text-xs font-medium">
+        <div className="bg-indigo-50 border border-indigo-100 rounded-xl px-3 py-2.5 mb-4">
+          <p className="text-indigo-700 text-xs font-medium">
             📢 Special: 0% interest for first 3 months! Apply before Apr 30. T&C apply.
           </p>
         </div>

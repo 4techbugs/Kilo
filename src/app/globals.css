@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1E3A8A;
-  --primary-light: #3B82F6;
-  --primary-dark: #1E40AF;
-  --primary-50: #EFF6FF;
-  --primary-100: #DBEAFE;
-  --accent: #059669;
-  --accent-light: #10B981;
-  --accent-dark: #047857;
+  --primary: #4F46E5;
+  --primary-light: #818CF8;
+  --primary-dark: #4338CA;
+  --primary-50: #EEF2FF;
+  --primary-100: #E0E7FF;
+  --accent: #10B981;
+  --accent-light: #34D399;
+  --accent-dark: #059669;
   --accent-50: #ECFDF5;
-  --bg: #F1F5F9;
+  --bg: #F8FAFC;
   --surface: #FFFFFF;
   --surface-elevated: #FFFFFF;
-  --text-primary: #0F172A;
+  --text-primary: #1E293B;
   --text-secondary: #475569;
   --text-tertiary: #94A3B8;
   --border: #E2E8F0;
   --border-light: #F1F5F9;
-  --danger: #DC2626;
+  --danger: #EF4444;
   --danger-light: #FEE2E2;
-  --warning: #D97706;
+  --warning: #F59E0B;
   --warning-light: #FEF3C7;
-  --info: #0284C7;
+  --info: #0EA5E9;
   --info-light: #E0F2FE;
-  --success: #059669;
+  --success: #10B981;
   --success-light: #D1FAE5;
   --shadows: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadows-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -73,15 +73,15 @@ html, body {
 }
 
 .gradient-primary {
-  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
 }
 
 .gradient-hero {
-  background: linear-gradient(180deg, #1E3A8A 0%, #1E40AF 100%);
+  background: linear-gradient(180deg, #4F46E5 0%, #4338CA 100%);
 }
 
 a, button {
@@ -91,14 +91,14 @@ a, button {
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--primary-light);
-  box-shadow: 0 0 0 3px var(--primary-100);
+  box-shadow: 0 0 0 3px var(--primary-50);
 }
 
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  height: 8px;
-  border-radius: 4px;
+  height: 6px;
+  border-radius: 3px;
   background: #E2E8F0;
   outline: none;
 }
@@ -106,72 +106,72 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
 }
 
 .otp-input {
-  width: 52px;
-  height: 56px;
+  width: 48px;
+  height: 52px;
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   border: 2px solid #E2E8F0;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: #F8FAFC;
-  color: #0F172A;
+  color: #1E293B;
   transition: all 0.2s;
 }
 
 .otp-input:focus {
-  border-color: #3B82F6;
+  border-color: #4F46E5;
   background: white;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
 .card-elevated {
   background: var(--surface-elevated);
-  border-radius: 16px;
-  box-shadow: var(--shadows-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadows);
   border: 1px solid var(--border-light);
 }
 
 .card-flat {
   background: var(--surface-elevated);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
   color: white;
   font-weight: 600;
   padding: 14px 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
 .btn-primary:active {
@@ -183,7 +183,7 @@ input[type="range"]::-moz-range-thumb {
   color: var(--primary);
   font-weight: 600;
   padding: 14px 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--primary-100);
   cursor: pointer;
 }
@@ -192,7 +192,7 @@ input[type="range"]::-moz-range-thumb {
   width: 100%;
   padding: 14px 16px;
   border: 2px solid #E2E8F0;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-size: 16px;
   background: white;
   transition: all 0.2s;
@@ -200,7 +200,7 @@ input[type="range"]::-moz-range-thumb {
 
 .input-field:focus {
   border-color: var(--primary-light);
-  box-shadow: 0 0 0 4px var(--primary-100);
+  box-shadow: 0 0 0 4px var(--primary-50);
 }
 
 .input-field::placeholder {
@@ -237,7 +237,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .badge-primary {
-  background: var(--primary-100);
+  background: var(--primary-50);
   color: var(--primary);
 }
 
